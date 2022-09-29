@@ -70,7 +70,7 @@ int Needle_cmp(const char haystack[], const char needle[]) {
     return 1;    
 }
 
-char Str_search(const char haystack[], const char needle[]) {
+char *Str_search(const char haystack[], const char needle[]) {
     size_t i = 0;
     
     while (haystack[i] != '\0') {
