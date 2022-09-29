@@ -75,7 +75,7 @@ char *Str_search(const char haystack[], const char needle[]) {
     
     while (haystack[i] != '\0') {
         
-        if(haystack[i] == needle[0] && Needle_cmp(*haystack[i], needle)) {
+        if(haystack[i] == needle[0] && Needle_cmp(*haystack + i, needle)) {
             return haystack + i;
         }
         i++;
