@@ -34,7 +34,7 @@ char *Str_concat(char dest[], const char src[]) {
     assert(src != NULL);
     assert(dest != NULL);
 
-    while (scr[i] != '\0') {
+    while (src[i] != '\0') {
         dest[i + destLength] = scr[i];
         i++;
     }
@@ -75,7 +75,7 @@ char *Str_search(const char haystack[], const char needle[]) {
     
     while (haystack[i] != '\0') {
         
-        if(haystack[i] == needle && Needle_cmp(haystack[i], needle[])) {
+        if(haystack[i] == needle[0] && Needle_cmp(*haystack[i], needle)) {
             return haystack + i;
         }
         i++;
