@@ -17,7 +17,7 @@ char *Str_copy(char *dest, const char *src) {
 
     assert(dest != NULL);
     
-    while(src != '\0') {
+    while(*src != '\0') {
         *dest = *src;
         src++;
         dest++;
@@ -33,7 +33,7 @@ char *Str_concat(char *dest, const char *src) {
     pcStart = dest;
     dest = dest + Str_getLength(dest);
 
-    while(src != '\0') {
+    while(*src != '\0') {
         *dest = *src;
         src++;
         dest++;
