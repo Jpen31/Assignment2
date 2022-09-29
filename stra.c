@@ -35,7 +35,7 @@ char *Str_concat(char dest[], const char src[]) {
     assert(dest != NULL);
 
     while (src[i] != '\0') {
-        dest[i + destLength] = scr[i];
+        dest[i + destLength] = src[i];
         i++;
     }
     dest[i + destLength] = '\0';
