@@ -13,16 +13,15 @@ size_t Str_getLength(const char pcSrc[]) {
 }
 
 char *Str_copy(char pcDest[], const char pcSrc[]) { 
-    size_t i = 0;
+    size_t srcLength = Str_getLength(pcSrc);
     
-    assert(pcSrc != NULL);
     assert(pcDest != NULL);
 
-    while (pcSrc[i] != '\0') {
+    for (size_t i = 0; i < srcLength;) {
         pcDest[i] = pcSrc[i];
         i++;
     }
-    pcDest[i] = '\0';
+    pcDest[srcLength] = '\0';
 
     return pcDest;
 }
