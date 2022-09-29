@@ -51,10 +51,10 @@ int Str_compare(const char s1[], const char s2[]) {
         i++;
     }
 
-    return s1[i] - s2[i];
+    return (int) s1[i] - (int) s2[i];
 }
 
-int Needle_cmp(const char haystack[], const char needle[]) {
+static int Needle_cmp(const char haystack[], const char needle[]) {
     size_t i = 0;
 
     while(needle[i] != '\0') {
