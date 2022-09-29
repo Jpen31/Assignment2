@@ -13,7 +13,7 @@ size_t Str_getLength(const char *pcSrc) {
 }
 
 char *Str_copy(char *dest, const char *src) {
-    const char *pt;
+    char *piStart = dest;
 
     assert(dest != NULL);
     
@@ -24,12 +24,29 @@ char *Str_copy(char *dest, const char *src) {
     }
     *dest = '\0';
 
-    return dest;
-    
+    return piStart;
 }
 
-char *Str_concat(char *dest, const char *src);
+char *Str_concat(char *dest, const char *src) {
+    char *piStart; 
+    
+    assert(dest != NULL);
+    
+    piStart = dest;
+    dest = dest + Str_getLength(dest);
 
-int Str_compare(const char *s1, const char *s2);
+    while(src != '\0') {
+        *dest = *src;
+        src++;
+        dest++;
+    }
+    *dest = '\0';
+
+    return piStart;
+}
+
+int Str_compare(const char *s1, const char *s2) {
+    
+}
 
 char *Str_search(const char *haystack, const char *needle);
