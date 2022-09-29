@@ -1,6 +1,8 @@
 #ifndef STR_INCLUDED
 #define STR_INCLUDED
 
+#include <stdlib.h>
+
 size_t Str_getLength(const char *s);
 
 char *Str_copy(char dest, const char src);
