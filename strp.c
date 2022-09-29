@@ -28,11 +28,9 @@ char *Str_copy(char *dest, const char *src) {
 }
 
 char *Str_concat(char *dest, const char *src) {
-    char *piStart; 
-    
-    assert(dest != NULL);
-    
-    piStart = dest;
+    char *pcStart; 
+        
+    pcStart = dest;
     dest = dest + Str_getLength(dest);
 
     while(src != '\0') {
@@ -42,11 +40,19 @@ char *Str_concat(char *dest, const char *src) {
     }
     *dest = '\0';
 
-    return piStart;
+    return pcStart;
 }
 
 int Str_compare(const char *s1, const char *s2) {
-    
+    while(*s1 == *s2) {
+        if(*s1 == '\0' || *s2 == '\0') {
+            break;
+        }
+        s1++;
+        s2++;
+    }
+
+    return *s1 - *s2;
 }
 
-char *Str_search(const char *haystack, const char *needle);
+/* char *Str_search(const char *haystack, const char *needle); */
