@@ -60,7 +60,7 @@ int Needle_cmp(const char *haystack[], const char *needle[]) {
     size_t i = 0;
 
     while(needle[i] != '\0') {
-        if (needle[i] != haystack[j]) {
+        if (needle[i] != haystack[i]) {
             return 0;
         }
 
