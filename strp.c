@@ -55,31 +55,28 @@ int Str_compare(const char *s1, const char *s2) {
     return *s1 - *s2;
 }
 
-/* char *Str_search(const char *haystack, const char *needle); {} */
 
-int Needle_cmp(const char haystack[], const char needle[]) {
-    size_t i = 0;
 
-    while(needle[i] != '\0') {
-        if (needle[i] != haystack[i]) {
+int Needle_cmp(const char *haystack, const char *needle) {
+    while(*needle != '\0') {
+        if (*needle != *haystack) {
             return 0;
         }
 
-        i++;
+        needle++;
+        haystack++;
     }
 
     return 1;    
 }
 
-char *Str_search(const char haystack[], const char needle[]) {
-    size_t i = 0;
-    
-    while(haystack[i] != '\0') {
+char *Str_search(const char *haystack, const char *needle) {
+    while(*haystack != '\0') {
         
-        if(haystack[i] == needle[0] && Needle_cmp(&haystack[i], needle)) {
+        if(*haystack == *needle && Needle_cmp(haystack, needle)) {
             return (char*) &haystack[i];
         }
-        i++;
+        haystack++;
     }
 
     return NULL;
