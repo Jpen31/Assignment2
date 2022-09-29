@@ -55,6 +55,22 @@ int Str_compare(const char *s1, const char *s2) {
     return *s1 - *s2;
 }
 
+/* char *Str_search(const char *haystack, const char *needle); {} */
+
+int Needle_cmp(const char haystack[], const char needle[]) {
+    size_t i = 0;
+
+    while(needle[i] != '\0') {
+        if (needle[i] != haystack[i]) {
+            return 0;
+        }
+
+        i++;
+    }
+
+    return 1;    
+}
+
 char *Str_search(const char haystack[], const char needle[]) {
     size_t i = 0;
     
