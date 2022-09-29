@@ -18,7 +18,7 @@ char *Str_copy(char pcDest[], const char pcSrc[]) {
     assert(pcSrc != NULL);
     assert(pcDest != NULL);
 
-    while (pcSrc[i] != '\0') {
+    while(pcSrc[i] != '\0') {
         pcDest[i] = pcSrc[i];
         i++;
     }
@@ -34,7 +34,7 @@ char *Str_concat(char dest[], const char src[]) {
     assert(src != NULL);
     assert(dest != NULL);
 
-    while (src[i] != '\0') {
+    while(src[i] != '\0') {
         dest[i + destLength] = src[i];
         i++;
     }
@@ -76,7 +76,7 @@ char *Str_search(const char haystack[], const char needle[]) {
     assert(haystack != NULL);
     assert(needle != NULL; 
     
-    while (haystack[i] != '\0') {
+    while(haystack[i] != '\0') {
         
         if(haystack[i] == needle[0] && Needle_cmp(&haystack[i], needle)) {
             return &haystack[i];
