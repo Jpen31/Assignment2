@@ -52,12 +52,12 @@ int Str_compare(const char *s1, const char *s2) {
         s2++;
     }
 
-    return *s1 - *s2;
+    return (int) *s1 - (int) *s2;
 }
 
 
 
-int Needle_cmp(const char *haystack, const char *needle) {
+static int Needle_cmp(const char *haystack, const char *needle) {
     while(*needle != '\0') {
         if (*needle != *haystack) {
             return 0;
