@@ -30,7 +30,6 @@ char *Str_concat(char dest[], const char src[]) {
     size_t i = 0;
     size_t destLength = Str_getLength(dest);
     
-    assert(src != NULL);
     assert(dest != NULL);
 
     while(src[i] != '\0') {
@@ -71,9 +70,6 @@ int Needle_cmp(const char haystack[], const char needle[]) {
 
 char *Str_search(const char haystack[], const char needle[]) {
     size_t i = 0;
-    
-    assert(haystack != NULL);
-    assert(needle != NULL); 
     
     while(haystack[i] != '\0') {
         
