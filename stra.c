@@ -27,7 +27,7 @@ char *Str_copy(char pcDest[], const char pcSrc[]) {
     return pcDest;
 }
 
-char *Str_concat(char *dest[], const char *src[]) {
+char *Str_concat(char dest[], const char src[]) {
     size_t i = 0;
     size_t destLength = Str_getLength(dest);
     
@@ -43,7 +43,7 @@ char *Str_concat(char *dest[], const char *src[]) {
     return dest;
 }
 
-int Str_compare(const char *s1[], const char *s2[]) {
+int Str_compare(const char s1[], const char s2[]) {
     size_t i = 0;
 
     while(s1[i] == s2[i]) {
@@ -56,7 +56,7 @@ int Str_compare(const char *s1[], const char *s2[]) {
     return s1[i] - s2[i];
 }
 
-int Needle_cmp(const char *haystack[], const char *needle[]) {
+int Needle_cmp(const char haystack[], const char needle[]) {
     size_t i = 0;
 
     while(needle[i] != '\0') {
@@ -70,7 +70,7 @@ int Needle_cmp(const char *haystack[], const char *needle[]) {
     return 1;    
 }
 
-char *Str_search(const char *haystack[], const char *needle[]) {
+char *Str_search(const char haystack[], const char needle[]) {
     size_t i = 0;
 
     while (haystack[i] != '\0') {
