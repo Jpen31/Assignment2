@@ -71,9 +71,16 @@ static int Needle_cmp(const char haystack[], const char needle[]) {
 char *Str_search(const char haystack[], const char needle[]) {
     size_t i = 0;
     
+    assert(haystack != NULL);
+    assert(needle != NULL);
+
+    if(*needle == NULL) {
+        return (char*) haystack;
+    }
+    
     while(haystack[i] != '\0') {
         
-        if(haystack[i] == needle[0] && Needle_cmp(&haystack[i], needle)) {
+        if(haystack[i] == *needle && Needle_cmp(&haystack[i], needle)) {
             return (char*) &haystack[i];
         }
         i++;
