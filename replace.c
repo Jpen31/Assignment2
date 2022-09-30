@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include <stdlib.h>
+#include <stdint.h>
 
 /*--------------------------------------------------------------------*/
 
@@ -28,14 +29,14 @@ static size_t replaceAndWrite(const char *pcLine,
         return 0;
     }
     
-    pcTicker = pcLine;
+    pcTicker = (*char) pcLine;
     while(*pcTicker != '\0') {
         char *nextInstance;
         nextInstance = Str_search(pcTicker, pcFrom);
 
         if(nextInstance == NULL) {
             printf("%s", pcTicker);
-            break
+            break;
         }
         else {
             replacements++;
@@ -89,7 +90,7 @@ int main(int argc, char *argv[])
             fprintf(stderr, "argc does not equal 3.\n");
             return EXIT_FAILURE;
         }
-        if(Str_getLength(argv[1] == 0)) {
+        if(Str_getLength(argv[1]) == 0) {
             char c;
             while(c = getchar() != EOF) {
                 putchar(c);
