@@ -92,10 +92,10 @@ int main(int argc, char *argv[])
         }
         if(Str_getLength(argv[1]) == 0) {
             char c;
-            c = getchar()
+            c = getchar();
             while(c != EOF) {
                 putchar(c);
-                c = getchar()
+                c = getchar();
             }
             fprintf(stderr, "0 replacements were made.\n");
             return 0;
@@ -112,8 +112,8 @@ int main(int argc, char *argv[])
                 c = getchar();
             }
 
-            replacements = replaceAndWrite(pcLine, argv[1], argv[2]);
-            fprintf(stderr, "%zu replacements were made.\n", replacements);
+            replacements = replaceAndWrite(pcLine, pcFrom, pcTo);
+            fprintf(stderr, "%lu replacements were made.\n", replacements);
 
         }
     }
