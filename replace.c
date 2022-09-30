@@ -92,20 +92,24 @@ int main(int argc, char *argv[])
         }
         if(Str_getLength(argv[1]) == 0) {
             char c;
-            while(c = getchar() != EOF) {
+            c = getchar()
+            while(c != EOF) {
                 putchar(c);
+                c = getchar()
             }
             fprintf(stderr, "0 replacements were made.\n");
             return 0;
         }
         else {
-            char pcLine[SIZE_MAX];
+            char pcLine[MAX_LINE_SIZE];
             char c;
             size_t replacements;
             
-            while(c = getchar() != EOF) {
+            c = getchar();
+            while(c != EOF) {
                 *pcLine = c;
                 pcLine++;
+                c = getchar();
             }
 
             replacements = replaceAndWrite(pcLine, argv[1], argv[2]);
