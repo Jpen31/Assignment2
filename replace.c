@@ -33,17 +33,17 @@ static size_t replaceAndWrite(const char *pcLine,
 
             if(nextInstance == NULL) {
                 printf("%s", pcLine);
+                pcLine++;
                 break;
             }
             else {
-                replacements++;
                 while(pcLine != nextInstance) {
                     putchar(*pcLine);
                     pcLine++;
                 }
+                replacements++;
                 printf("%s", pcTo);
             }
-            pcLine++;
         }
     return replacements;
     }
