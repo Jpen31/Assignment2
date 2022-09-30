@@ -20,7 +20,36 @@
 static size_t replaceAndWrite(const char *pcLine,
                               const char *pcFrom, const char *pcTo)
 {
-   /* Insert your code here. */
+    size_t replacements = 0;
+    char *pcTicker;
+
+    if(Str_getLength(pcFrom) == 0) {
+        printf("%s", pcLine);
+        return 0;
+    }
+    
+    pcTicker = pcLine;
+    while(*pcTicker != '\0') {
+        char *nextInstance;
+        nextInstance = Str_search(pcTicker, pcFrom);
+
+        if(nextInstance == NULL) {
+            printf("%s", pcTicker);
+            break
+        }
+        else {
+            replacements++;
+            while(pcTicker != nextInstance) {
+                putchar(*pcTicker);
+                pcTicker++;
+            }
+            printf("%s", pcTo);
+        }
+        pcTicker++;
+    }
+    
+    return replacements;
+
 }
 
 /*--------------------------------------------------------------------*/
@@ -55,8 +84,34 @@ int main(int argc, char *argv[])
    pcFrom = argv[1];
    pcTo = argv[2];
 
-   while (fgets(acLine, MAX_LINE_SIZE, stdin) != NULL)
-      /* Insert your code here. */
+    while (fgets(acLine, MAX_LINE_SIZE, stdin) != NULL) {
+        if(argc != 3) {
+            fprintf(stderr, "argc does not equal 3.\n");
+            return EXIT_FAILURE;
+        }
+        if(Str_getLength(argv[1] == 0)) {
+            char c;
+            while(c = getchar() != EOF) {
+                putchar(c);
+            }
+            fprintf(stderr, "0 replacements were made.\n");
+            return 0;
+        }
+        else {
+            char pcLine[SIZE_MAX];
+            char c;
+            size_t replacements;
+            
+            while(c = getchar() != EOF) {
+                *pcLine = c;
+                pcLine++;
+            }
+
+            replacements = replaceAndWrite(pcLine, argv[1], argv[2]);
+            fprintf(stderr, "%zu replacements were made.\n", replacements);
+
+        }
+    }
 
    fprintf(stderr, "%lu replacements\n", (unsigned long)uReplaceCount);
    return 0;
