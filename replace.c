@@ -7,7 +7,6 @@
 #include <stdio.h>
 #include <assert.h>
 #include <stdlib.h>
-#include <stdint.h>
 
 /*--------------------------------------------------------------------*/
 
@@ -29,7 +28,7 @@ static size_t replaceAndWrite(const char *pcLine,
         return 0;
     }
     
-    pcTicker = (*char) pcLine;
+    pcTicker = pcLine;
     while(*pcTicker != '\0') {
         char *nextInstance;
         nextInstance = Str_search(pcTicker, pcFrom);
@@ -93,7 +92,7 @@ int main(int argc, char *argv[])
         if(Str_getLength(argv[1]) == 0) {
             char c;
             c = getchar();
-            while(c != E0F) {
+            while(c != EOF) {
                 putchar(c);
                 c = getchar();
             }
@@ -106,7 +105,7 @@ int main(int argc, char *argv[])
             size_t replacements;
             
             c = getchar();
-            while(c != E0F) {
+            while(c != EOF) {
                 *pcLine = c;
                 pcLine++;
                 c = getchar();
