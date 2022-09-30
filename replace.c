@@ -21,31 +21,29 @@ static size_t replaceAndWrite(const char *pcLine,
                               const char *pcFrom, const char *pcTo)
 {
     size_t replacements = 0;
-    const char *pcTicker;
 
     if(Str_getLength(pcFrom) == 0) {
         printf("%s", pcLine);
         return 0;
     }
     
-    pcTicker = pcLine;
-    while(*pcTicker != '\0') {
+    while(*pcLine != '\0') {
         char *nextInstance;
-        nextInstance = Str_search(pcTicker, pcFrom);
+        nextInstance = Str_search(pcLine, pcFrom);
 
         if(nextInstance == NULL) {
-            printf("%s", pcTicker);
+            printf("%s", pcLine);
             break;
         }
         else {
             replacements++;
-            while(pcTicker != nextInstance) {
-                putchar(*pcTicker);
-                pcTicker++;
+            while(pcLine != nextInstance) {
+                putchar(*pcLine);
+                pcLine++;
             }
             printf("%s", pcTo);
         }
-        pcTicker++;
+        pcLine++;
     }
     
     return replacements;
