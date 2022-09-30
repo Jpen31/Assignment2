@@ -88,4 +88,5 @@ int main(int argc, char *argv[])
         fprintf(stderr, "%lu replacements\n", (unsigned long)uReplaceCount);
         return 0;
     }
+    return 0;
 }
