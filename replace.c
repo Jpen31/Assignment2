@@ -45,7 +45,7 @@ static size_t replaceAndWrite(const char *pcLine,
             }
             pcLine++;
         }
-        return replacements;
+    return replacements;
     }
 
 }
