@@ -21,14 +21,14 @@ static size_t replaceAndWrite(const char *pcLine,
                               const char *pcFrom, const char *pcTo)
 {
     size_t replacements = 0;
+    char *nextInstance;
 
-    if(Str_getLength(pcFrom) == 0) {
+    if(pcFrom == NULL) {
         printf("%s", pcLine);
         return 0;
     }
     else {
         while(*pcLine != '\0') {
-            char *nextInstance;
             nextInstance = Str_search(pcLine, pcFrom);
 
             if(nextInstance == NULL) {
