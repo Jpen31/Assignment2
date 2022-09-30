@@ -93,7 +93,7 @@ int main(int argc, char *argv[])
         if(Str_getLength(argv[1]) == 0) {
             char c;
             c = getchar();
-            while(c != 'E0F') {
+            while(c != E0F) {
                 putchar(c);
                 c = getchar();
             }
@@ -106,7 +106,7 @@ int main(int argc, char *argv[])
             size_t replacements;
             
             c = getchar();
-            while(c != 'E0F') {
+            while(c != E0F) {
                 *pcLine = c;
                 pcLine++;
                 c = getchar();
