@@ -90,7 +90,7 @@ int main(int argc, char *argv[])
             return EXIT_FAILURE;
         }
         if(Str_getLength(argv[1]) == 0) {
-            char c;
+            int c;
             c = getchar();
             while(c != EOF) {
                 putchar(c);
@@ -101,7 +101,7 @@ int main(int argc, char *argv[])
         }
         else {
             char pcLine[MAX_LINE_SIZE];
-            char c;
+            int c;
             size_t replacements;
             
             c = getchar();
