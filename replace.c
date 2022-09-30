@@ -102,12 +102,13 @@ int main(int argc, char *argv[])
         else {
             char pcLine[MAX_LINE_SIZE];
             int c;
+            int i = 0;
             size_t replacements;
             
             c = getchar();
             while(c != EOF) {
-                *pcLine = c;
-                pcLine++;
+                pcLine[i] = c;
+                i++;
                 c = getchar();
             }
 
