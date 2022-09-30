@@ -83,39 +83,9 @@ int main(int argc, char *argv[])
    pcTo = argv[2];
 
     while (fgets(acLine, MAX_LINE_SIZE, stdin) != NULL) {
-        if(argc != 3) {
-            fprintf(stderr, "argc does not equal 3.\n");
-            return EXIT_FAILURE;
-        }
-        if(Str_getLength(argv[1]) == 0) {
-            int c;
-            c = getchar();
-            while(c != EOF) {
-                putchar(c);
-                c = getchar();
-            }
-            fprintf(stderr, "0 replacements were made.\n");
-            return 0;
-        }
-        else {
-            char pcLine[MAX_LINE_SIZE];
-            int c;
-            int i = 0;
-            size_t replacements;
-            
-            c = getchar();
-            while(c != EOF) {
-                pcLine[i] = c;
-                i++;
-                c = getchar();
-            }
-
-            replacements = replaceAndWrite(pcLine, pcFrom, pcTo);
-            fprintf(stderr, "%lu replacements were made.\n", replacements);
-
-        }
+        uReplaceCount = uReplaceCount(acLine, pcFrom, pcTo);
+        
+        fprintf(stderr, "%lu replacements\n", (unsigned long)uReplaceCount);
+        return 0;
     }
-
-   fprintf(stderr, "%lu replacements\n", (unsigned long)uReplaceCount);
-   return 0;
 }
