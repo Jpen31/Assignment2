@@ -21,7 +21,7 @@ static size_t replaceAndWrite(const char *pcLine,
                               const char *pcFrom, const char *pcTo)
 {
     size_t replacements = 0;
-    char *pcTicker;
+    const char *pcTicker;
 
     if(Str_getLength(pcFrom) == 0) {
         printf("%s", pcLine);
