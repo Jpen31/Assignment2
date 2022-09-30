@@ -42,7 +42,6 @@ static size_t replaceAndWrite(const char *pcLine,
                 }
                 replacements++;
                 printf("%s", pcTo);
-                pcLine++;
             }
         }
     }
