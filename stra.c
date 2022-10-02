@@ -72,7 +72,7 @@ int Str_compare(const char s1[], const char s2[]) {
 
 /* If string needle occurs at the beginning of string haystack, 
 returns 1. Otherwise returns 0. */
-static int Needle_cmp(const char haystack[], const char needle[]) {
+static int Str_needle_cmp(const char haystack[], const char needle[]) {
     size_t i = 0;
 
     assert(haystack != NULL);
@@ -105,7 +105,7 @@ char *Str_search(const char haystack[], const char needle[]) {
         
         /* if needle is found in haystack, return reference*/
         if(haystack[i] == *needle) {
-            if(Needle_cmp(&haystack[i], needle)) {
+            if(Str_needle_cmp(&haystack[i], needle)) {
                 return (char*) &haystack[i];
             }
         }
