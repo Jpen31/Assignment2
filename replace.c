@@ -31,8 +31,10 @@ static size_t replaceAndWrite(const char *pcLine,
     }
     else {
         while(*pcLine != '\0') {
+            size_t i;
+            i = 0;
             nextInstance = Str_search(pcLine, pcFrom);
-            size_t i = 0;
+            
 
             if(nextInstance == NULL) {
                 printf("%s", pcLine);
@@ -46,7 +48,7 @@ static size_t replaceAndWrite(const char *pcLine,
                 replacements++;
                 printf("%s", pcTo);
                 
-                for(i < pcFromLength) {
+                while(i < pcFromLength) {
                     pcLine++;
                     i++;
                 }
