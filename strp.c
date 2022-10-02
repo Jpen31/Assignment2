@@ -92,7 +92,7 @@ static int Needle_cmp(const char *haystack, const char *needle) {
 }
 
 char *Str_search(const char *haystack, const char *needle) {
-    ssert(haystack != NULL);
+    assert(haystack != NULL);
     assert(needle != NULL);
     
     /* returns pointer to haystack if needle is 0 characters long */
