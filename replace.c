@@ -22,40 +22,44 @@ static size_t replaceAndWrite(const char *pcLine,
 {
     size_t replacements = 0;
     size_t pcFromLength = Str_getLength(pcFrom);
-    char *nextInstance;
+    
+    assert(pcFrom != NULL);
+    assert(pcLine != NULL);
+    assert(pcTo != NULL);
 
-
-    if(*pcFrom == '\0') {
+    /* if pcFrom has length 0, returns pcLine unedited*/
+    if(pcFromLength == 0) {
         printf("%s", pcLine);
         return 0;
     }
-    else {
-        while(*pcLine != '\0') {
-            size_t i;
-            i = 0;
-            nextInstance = Str_search(pcLine, pcFrom);
-            
+    
+    while(*pcLine != '\0') {
+        size_t i = 0;
+        char *nextInstance = Str_search(pcLine, pcFrom);
 
-            if(nextInstance == NULL) {
-                printf("%s", pcLine);
-                return replacements;
+        /* if there are no more instances of pcFrom */
+        if(nextInstance == NULL) {
+            printf("%s", pcLine);
+            return replacements;
+        }
+
+        /* prints until next instance of pcFrom and then inserts pcTo */
+        else {
+            while(pcLine != nextInstance) {
+                putchar(*pcLine);
+                pcLine++;
             }
-            else {
-                while(pcLine != nextInstance) {
-                    putchar(*pcLine);
-                    pcLine++;
-                }
-                replacements++;
-                printf("%s", pcTo);
-                
-                while(i < pcFromLength) {
-                    pcLine++;
-                    i++;
-                }
-
+            replacements++;
+            printf("%s", pcTo);
+            
+            /* skips remaining chars of pcFrom */
+            while(i < pcFromLength) {
+                pcLine++;
+                i++;
             }
         }
     }
+    
     return replacements;
 }
 
@@ -94,6 +98,7 @@ int main(int argc, char *argv[])
     while (fgets(acLine, MAX_LINE_SIZE, stdin) != NULL) {
         uReplaceCount += replaceAndWrite(acLine, pcFrom, pcTo);
     }
+    
     fprintf(stderr, "%lu replacements\n", (unsigned long)uReplaceCount);
     return 0;
 }
