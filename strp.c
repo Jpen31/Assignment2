@@ -41,7 +41,7 @@ char *Str_copy(char *dest, const char *src) {
 char *Str_concat(char *dest, const char *src) {
     char *pcStart; 
     
-    ssert(src != NULL);
+    assert(src != NULL);
     assert(dest != NULL);
 
     pcStart = dest;
@@ -58,7 +58,7 @@ char *Str_concat(char *dest, const char *src) {
 }
 
 int Str_compare(const char *s1, const char *s2) {
-    ssert(s1 != NULL);
+    assert(s1 != NULL);
     assert(s2 != NULL);
     
     /* finds first instance of a non-matching character or null byte*/
@@ -76,7 +76,7 @@ int Str_compare(const char *s1, const char *s2) {
 /* If string needle occurs at the beginning of string haystack, 
 returns 1. Otherwise returns 0. */
 static int Needle_cmp(const char *haystack, const char *needle) {
-    ssert(haystack != NULL);
+    assert(haystack != NULL);
     assert(needle != NULL);
     
     while(*needle != '\0') {
