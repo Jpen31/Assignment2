@@ -94,6 +94,9 @@ Is it possible for Str_copy or Str_concat to call assert to verify
 that the destination memory area specified by the caller is large
 enough? Explain.
 
-
+No. Calling assert won't help to determine the lenght of the destination
+string because there might be a null byte in the string. After the null
+byte, there may be free space, but you also might be overwriting 
+something else.
 
 ------------------------------------------------------------------------
