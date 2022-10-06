@@ -21,9 +21,10 @@ char *Str_concat(char *dest, const char *src);
 of the first set of charactors if they don't.*/
 int Str_compare(const char *s1, const char *s2);
 
-/* FInds the first occurance of string needle in string haystack. 
+/* Finds the first occurance of string needle in string haystack. 
 Returns pointer to the location of the occurance, or NULL if there is
-none. */ 
+none. If needle is 0 characters long, returns pointer to the first
+char of haystack */ 
 char *Str_search(const char *haystack, const char *needle);
 
 #endif

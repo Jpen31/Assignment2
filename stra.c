@@ -104,7 +104,7 @@ char *Str_search(const char haystack[], const char needle[]) {
     while(haystack[i] != '\0') {
         
         /* if needle is found in haystack, return reference*/
-        if(haystack[i] == *needle) {
+        if(haystack[i] == needle[0]) {
             if(Str_needle_cmp(&haystack[i], needle)) {
                 return (char*) &haystack[i];
             }
