@@ -74,8 +74,7 @@ int Str_compare(const char *s1, const char *s2) {
 }
 
 /* If string needle occurs at the beginning of string haystack, 
-returns 1. Otherwise returns 0. Returns error if needle or haystack
-point to null */
+returns 1. Otherwise returns 0. Haystack and needle can't be null */
 static int Str_needle_cmp(const char *haystack, const char *needle) {
     assert(haystack != NULL);
     assert(needle != NULL);
